@@ -1,0 +1,21 @@
+create table parent (
+	id int primary key,
+    name varchar (255),
+    parent_id varchar
+  	);
+
+insert into parent(id, name, parent_id)
+values 
+(1, "Zaki", "2"),
+(2, "Ilham", "NULL"),
+(3, "Irwan", "2"),
+(4, "Arka", "3");
+
+select 
+id, name, 
+case 
+	when parent_id = "2" then "Ilham"
+    when parent_id = "3" then "Irwan"
+    else "NULL"
+end as parent_name
+from parent;
